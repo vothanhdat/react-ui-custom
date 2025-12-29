@@ -1,0 +1,24 @@
+.tooltip {
+    cursor: pointer;
+
+    .tooltip-content {
+        display: none;
+        position: absolute;
+        padding: 0.5em;
+        position-anchor: --tooltip;
+        position-visibility: anchors-visible;
+        background-color: var(--bg);
+        border: solid var(--border-width) color-mix(in srgb, currentColor var(--border-opacity), transparent);
+        border-radius: var(--border-radius);
+        position-area: bottom center;
+    }
+
+    &:hover,
+    &:active {
+        anchor-name: --tooltip;
+
+        .tooltip-content {
+            display: unset;
+        }
+    }
+}

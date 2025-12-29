@@ -1,0 +1,238 @@
+.container {
+    max-width: calc(100% * 610 / 650);
+    margin: 0 auto;
+
+    @container (width > 650px) {
+        max-width: 610px;
+    }
+
+    @container (width > 750px) {
+        max-width: 650px;
+    }
+
+    @container (width > 1100px) {
+        max-width: 900px;
+    }
+
+    @container (width > 1300px) {
+        max-width: 1100px;
+    }
+
+    @container (width > 1500px) {
+        max-width: 1300px;
+    }
+
+    @container (width > 2000px) {
+        max-width: 1500px;
+    }
+
+}
+
+
+
+
+
+.section {
+
+    --padding-factor: 0.8;
+
+    @container (width > 650px) {
+        --padding-factor: 0.9;
+    }
+
+    @container (width > 750px) {
+        --padding-factor: 1;
+    }
+
+    @container (width > 1100px) {
+        --padding-factor: 1.2;
+    }
+
+    @container (width > 1300px) {
+        --padding-factor: 1.4;
+    }
+
+    @container (width > 1500px) {
+        --padding-factor: 1.6;
+    }
+
+    @container (width > 2000px) {
+        --padding-factor: 1.8;
+    }
+
+
+    padding-block: calc(3rem * var(--padding-factor));
+
+    &.small {
+        padding-block: calc(3rem * var(--padding-factor));
+    }
+
+    &.medium {
+        padding-block: calc(6rem * var(--padding-factor));
+    }
+
+    &.large {
+        padding-block: calc(8rem * var(--padding-factor));
+    }
+
+    .section-body {}
+}
+
+.box, .box-padding {
+    padding-inline: var(--box-padding-inline);
+    padding-block: var(--box-padding-block);
+}
+
+.box {
+    border-radius: calc(min(var(--box-padding-inline), var(--box-padding-block)));
+    display: block;
+    margin-block-end: 1em;
+
+
+    .fullview {
+        margin-inline: calc(2px - var(--box-padding-inline))
+    }
+}
+
+.box,
+.elevated {
+    box-shadow: var(--shadow);
+
+    @media (prefers-color-scheme: dark) {
+        box-shadow: none;
+        border: solid 1px color-mix(in srgb, currentColor var(--border-opacity), transparent)
+    }
+}
+
+.border {
+    border: solid 1px color-mix(in srgb, var(--color) var(--border-opacity), transparent);
+}
+
+
+
+.rows-flex {
+    display: flex;
+    flex-direction: row;
+
+    &.flex-padding {
+        padding-inline: 1em;
+    }
+}
+
+.cols-flex {
+    display: flex;
+    flex-direction: column;
+
+    &.flex-padding {
+        padding-block: 1em;
+    }
+}
+
+.rows-flex,
+.cols-flex {
+    &.flex-gap {
+        gap: 1rem;
+    }
+
+    &.flex-center {
+        align-items: center;
+    }
+
+    &.flex-wrap {
+        flex-wrap: wrap;
+    }
+
+    &.flex-center {
+        align-items: center;
+    }
+
+
+    &:not(.flex-wrap):has(>.flex-fill)> :not(.flex-fill) {
+        flex: 0 !important;
+    }
+
+    >.flex-fill {
+        flex: 1;
+    }
+
+    >.flex-half {
+        min-width: calc(50% * 0.9);
+        flex: 0.5;
+        flex: 0.5;
+    }
+
+    >.flex-third {
+        min-width: calc(33.33% * 0.9);
+        flex: 0.3333;
+    }
+
+    >.flex-quater {
+        min-width: calc(25% * 0.9);
+        flex: 0.25555;
+    }
+}
+
+.flex-fill {
+    flex: 1;
+}
+
+@media screen and (min-width: 800px) {
+    .is-mobile {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .is-desktop {
+        display: none;
+    }
+}
+
+.block {
+    display: block;
+    width: fill;
+    width: -webkit-fill-available;
+}
+
+.childs-spaced-block {
+    > :nth-last-child(n + 2) {
+        margin-block-end: var(--space, 1em);
+    }
+}
+
+.childs-spaced-inline {
+    > :nth-last-child(n + 2) {
+        margin-inline-end: var(--space, 1em);
+    }
+}
+
+.childs-v-align-middle>* {
+    vertical-align: middle;
+}
+
+.relative {
+    position: relative;
+}
+
+.media {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+
+    &.centered {
+        align-items: center;
+    }
+
+    .media-left {
+        order: 1;
+    }
+
+    .media-right {
+        order: 3;
+    }
+
+    .media-content {
+        flex: 1;
+        order: 2;
+    }
+}

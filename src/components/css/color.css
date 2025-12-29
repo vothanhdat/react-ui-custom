@@ -1,0 +1,132 @@
+.contract.filled>* {
+    --current-color: oklch(from var(--text) calc(clamp(0, (l - 0.8) * -999, 1)) 0 h);
+}
+
+.primary.filled>* {
+    --current-color: oklch(from var(--primary) 1 0 calc(h));
+}
+
+.link.filled>* {
+    --current-color: oklch(from var(--link) 1 0 calc(h));
+}
+
+.success.filled>* {
+    --current-color: oklch(from var(--success) 1 0 calc(h));
+}
+
+.danger.filled>* {
+    --current-color: oklch(from var(--danger) 1 0 calc(h));
+}
+
+.secondary.filled>* {
+    --current-color: oklch(from var(--secondary) 1 0 calc(h));
+}
+
+:not(:is(.primary, .link, .success, .danger, .secondary)).filled>* {
+    --current-color: oklch(from var(--text) 1 0 calc(h));
+}
+
+
+
+.contract {
+    --current-color: var(--text);
+}
+
+.primary {
+    --current-color: var(--primary);
+}
+
+.link {
+    --current-color: var(--link);
+}
+
+.success {
+    --current-color: var(--success);
+}
+
+.danger {
+    --current-color: var(--danger);
+}
+
+.secondary {
+    --current-color: var(--secondary);
+}
+
+
+
+.outlined,
+.flatten,
+.dimmed,
+.filled {
+    --avtive-1: 0;
+    --avtive-2: 0;
+    --avtive-3: 0;
+    --active: calc(var(--avtive-1) + var(--avtive-2) + var(--avtive-3));
+
+    &.active {
+        --avtive-3: 2;
+    }
+
+    &.hoverable:hover {
+        --avtive-1: 1;
+
+        &:active {
+            --avtive-2: 1;
+        }
+    }
+}
+
+.outlined {
+    --color: oklch(from var(--current-color) calc(l + var(--active, 0) * 0.1) c h);
+    --background: color-mix(in srgb, var(--color) calc(var(--active, 0) * 15%), transparent);
+
+    color: var(--color);
+    border: solid var(--border-width) var(--color);
+    background-color: var(--background);
+
+}
+
+.flatten,
+.dimmed {
+    --color: oklch(from var(--current-color) calc(l + var(--active, 0) * 0.1) c h);
+    --background: color-mix(in srgb, var(--color) calc(var(--active, 0) * 15%), transparent);
+
+    color: var(--color);
+    border: none;
+    background-color: var(--background);
+
+    &.dimmed {
+        background-color: color-mix(in srgb, var(--color) calc(10% + var(--active, 0) * 5%), transparent);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: #fff1;
+        }
+    }
+}
+
+.filled {
+
+    --background: oklch(from var(--current-color) calc(l + 0.05 * var(--active, 0)) c h);
+    --color: oklch(from var(--current-color) calc(clamp(0, (l - 0.8) * -999, 1)) 0 h);
+    --layer:  color-mix(in srgb, var(--color) 10%, var(--background));
+    color: var(--color);
+    border: solid var(--border-width) var(--background);
+    background-color: var(--background);
+}
+
+.fill-bg {
+    background-color: var(--background, var(--bg));
+}
+
+
+
+
+.skeleton {
+    background-color: color-mix(in srgb, var(--color) 10%, var(--bg));
+    color: transparent !important;
+    border-radius: var(--border-radius);
+
+    >* {
+        visibility: hidden;
+    }
+}
