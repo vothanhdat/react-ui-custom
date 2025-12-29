@@ -1,63 +1,63 @@
-.contract.filled>* {
+.color-contract.variant-filled>* {
     --current-color: oklch(from var(--text) calc(clamp(0, (l - 0.8) * -999, 1)) 0 h);
 }
 
-.primary.filled>* {
+.color-primary.variant-filled>* {
     --current-color: oklch(from var(--primary) 1 0 calc(h));
 }
 
-.link.filled>* {
+.color-link.variant-filled>* {
     --current-color: oklch(from var(--link) 1 0 calc(h));
 }
 
-.success.filled>* {
+.color-success.variant-filled>* {
     --current-color: oklch(from var(--success) 1 0 calc(h));
 }
 
-.danger.filled>* {
+.color-danger.variant-filled>* {
     --current-color: oklch(from var(--danger) 1 0 calc(h));
 }
 
-.secondary.filled>* {
+.color-secondary.variant-filled>* {
     --current-color: oklch(from var(--secondary) 1 0 calc(h));
 }
 
-:not(:is(.primary, .link, .success, .danger, .secondary)).filled>* {
+:not(:is(.color-primary, .color-link, .color-success, .color-danger, .color-secondary)).variant-filled>* {
     --current-color: oklch(from var(--text) 1 0 calc(h));
 }
 
 
 
-.contract {
+.color-contract {
     --current-color: var(--text);
 }
 
-.primary {
+.color-primary {
     --current-color: var(--primary);
 }
 
-.link {
+.color-link {
     --current-color: var(--link);
 }
 
-.success {
+.color-success {
     --current-color: var(--success);
 }
 
-.danger {
+.color-danger {
     --current-color: var(--danger);
 }
 
-.secondary {
+.color-secondary {
     --current-color: var(--secondary);
 }
 
 
 
-.outlined,
-.flatten,
-.dimmed,
-.filled {
+.variant-outlined,
+.variant-flatten,
+.variant-dimmed,
+.variant-filled {
     --avtive-1: 0;
     --avtive-2: 0;
     --avtive-3: 0;
@@ -76,7 +76,7 @@
     }
 }
 
-.outlined {
+.variant-outlined {
     --color: oklch(from var(--current-color) calc(l + var(--active, 0) * 0.1) c h);
     --background: color-mix(in srgb, var(--color) calc(var(--active, 0) * 15%), transparent);
 
@@ -86,8 +86,8 @@
 
 }
 
-.flatten,
-.dimmed {
+.variant-flatten,
+.variant-dimmed {
     --color: oklch(from var(--current-color) calc(l + var(--active, 0) * 0.1) c h);
     --background: color-mix(in srgb, var(--color) calc(var(--active, 0) * 15%), transparent);
 
@@ -104,7 +104,7 @@
     }
 }
 
-.filled {
+.variant-filled {
 
     --background: oklch(from var(--current-color) calc(l + 0.05 * var(--active, 0)) c h);
     --color: oklch(from var(--current-color) calc(clamp(0, (l - 0.8) * -999, 1)) 0 h);

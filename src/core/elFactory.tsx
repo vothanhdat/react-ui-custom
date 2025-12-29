@@ -26,7 +26,7 @@ export const elFactory = <
     componentName = getDefaultName(El, classesName)
 ) => {
 
-    type ComponentProps<T extends PropToClassFactoryParams> = ClassFlags<T> & ElFactoryProps<K>
+    type ComponentProps<T extends PropToClassFactoryParams> = ClassFlags<T> & Omit<ElFactoryProps<K>, keyof T>
 
     type ComponentType<T extends PropToClassFactoryParams> = React.FC<ComponentProps<T>>
         & {

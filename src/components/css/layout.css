@@ -63,19 +63,21 @@
 
     padding-block: calc(3rem * var(--padding-factor));
 
-    &.small {
+    &.section-small {
         padding-block: calc(3rem * var(--padding-factor));
     }
 
-    &.medium {
+    &.section-medium {
         padding-block: calc(6rem * var(--padding-factor));
     }
 
-    &.large {
+    &.section-large {
         padding-block: calc(8rem * var(--padding-factor));
     }
 
-    .section-body {}
+    .section-body {
+        
+    }
 }
 
 .box, .box-padding {

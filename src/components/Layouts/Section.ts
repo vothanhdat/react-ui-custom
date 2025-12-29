@@ -1,5 +1,5 @@
 import { elFactory } from "../../core/elFactory";
-import { colorPropsToClass, shapePropsToClass } from "../_base";
+import { colorPropsToClass } from "../_base";
 import { FlexLayout } from "./FlexLayout";
 import { GridLayout } from "./GridLayout";
 import "./../css/index.css"
@@ -7,13 +7,10 @@ import "./../css/index.css"
 
 
 export const Section = {
-    Root: elFactory('section', 'section fade-in', {
+    Root: elFactory('section', 'section fade-in variant-filled', {
         ...colorPropsToClass,
-        ...shapePropsToClass,
-        small: 'small',
-        medium: 'medium',
-        large: 'large',
-    }),
+        section: ["small", "medium", "large"] 
+    } as const),
     FlexBody: FlexLayout.Container.extends(
         'section-body',
         {}
@@ -23,3 +20,4 @@ export const Section = {
         {}
     ),
 };
+

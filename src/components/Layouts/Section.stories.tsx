@@ -10,22 +10,26 @@ import { Typo } from '../Typograpy/Typography';
 const meta = {
     title: 'Layouts/Section',
     component: Section.Root,
-    parameters: {
-
-    },
+    parameters: {},
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
     tags: ['autodocs'],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
-        isFilled: Boolean,
-        isContract: Boolean,
-        isOutlined: Boolean,
-        isDimmed: Boolean,
-        isPrimary: Boolean,
-        isLink: Boolean,
-        isDanger: Boolean
+        color: {
+            type: {
+                name: "enum",
+                required: false,
+                value: ['link', 'primary', 'success', 'danger', 'secondary', 'contract'] as const
+            }
+        },
+        section: {
+            type: {
+                name: "enum",
+                required: false,
+                value: ['small', 'medium', 'large'] as const
+            }
+        },
     },
-    // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
     args: { onClick: fn() },
 } satisfies Meta<typeof Section.Root>;
 
@@ -43,17 +47,17 @@ const children = <Section.FlexBody>
     </Typo.Title>
 </Section.FlexBody>
 
-export const PrimaryFilled: Story = {
+
+export const SectionPrimary: Story = {
     args: {
-        isPrimary: true,
-        isFilled: true,
+        color: "primary",
         children,
     },
 };
-export const LinkFilled: Story = {
+
+export const SectionLink: Story = {
     args: {
-        isLink: true,
-        isFilled: true,
+        color: "link",
         children,
     },
 };

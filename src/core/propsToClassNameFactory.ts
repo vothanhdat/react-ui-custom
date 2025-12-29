@@ -2,9 +2,9 @@ import { type ClassesParam, className } from "./className"
 
 export type PropToClassFactoryParams = Record<string, string | readonly string[]>
 
-export type ClassFlags<T extends PropToClassFactoryParams> = Partial<{
-    [C in keyof T]?: T[C] extends string[] ? T[C][number] : boolean
-}>
+export type ClassFlags<T extends PropToClassFactoryParams> = {
+    [C in keyof T]?: T[C] extends readonly string[] ? T[C][number] : boolean
+}
 
 export const propsToClassNameFactory = <T extends PropToClassFactoryParams>(
     classesParams: T,
@@ -26,7 +26,7 @@ export const propsToClassNameFactory = <T extends PropToClassFactoryParams>(
                     }
                 } else if (currentParam instanceof Array) {
                     if (typeof value === 'string') {
-                        classes[currentParam + '-' + value] = true
+                        classes[key + '-' + value] = true
                     }
                 }
             } else {

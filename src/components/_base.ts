@@ -47,22 +47,26 @@ export const sharpItems = {
 
 
 export const colorPropsToClass = {
-    isLink: 'link',
-    isPrimary: 'primary',
-    isSuccess: 'success',
-    isDanger: 'danger',
-    isSecondary: 'secondary',
-    isContract: 'contract',
+    color: [
+        'link',
+        'primary',
+        'success',
+        'danger',
+        'secondary',
+        'contract',
+    ] as const
 
-} satisfies PropToClassFactoryParams
+} as const satisfies PropToClassFactoryParams
 
 export const shapePropsToClass = {
-    isOutlined: 'outlined',
-    isFilled: 'filled',
-    isDimmed: 'dimmed',
-    textButton: 'flatten',
-    isElevated: 'elevated'
-} satisfies PropToClassFactoryParams
+    variant: [
+        'outlined',
+        'filled',
+        'dimmed',
+        'flatten',
+        'elevated',
+    ] as const
+} as const satisfies PropToClassFactoryParams
 
 
 export const textVariant = {
