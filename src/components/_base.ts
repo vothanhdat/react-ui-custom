@@ -47,25 +47,11 @@ export const sharpItems = {
 
 
 export const colorPropsToClass = {
-    color: [
-        'link',
-        'primary',
-        'success',
-        'danger',
-        'secondary',
-        'contract',
-    ] as const
-
+    color: ['link', 'primary', 'success', 'danger', 'secondary', 'contract'] as const
 } as const satisfies PropToClassFactoryParams
 
 export const shapePropsToClass = {
-    variant: [
-        'outlined',
-        'filled',
-        'dimmed',
-        'flatten',
-        'elevated',
-    ] as const
+    variant: ['outlined', 'filled', 'dimmed', 'flatten', 'elevated'] as const
 } as const satisfies PropToClassFactoryParams
 
 
@@ -93,4 +79,19 @@ export const animateIn = {
     fadeIn: 'fade-in',
     flashIn: 'flash-in',
 
+} satisfies PropToClassFactoryParams
+
+
+export const statePropsToClass = {
+    isLoading: 'loading',
+    isLoadingPre: 'loading-pre',
+    isActive: 'active',
+    skeleton: 'skeleton',
+    disabled: 'disabled',
+} satisfies PropToClassFactoryParams
+
+
+export const layoutPropsToClass = {
+    block: 'block',
+    square: 'aspect-1-1',
 } satisfies PropToClassFactoryParams

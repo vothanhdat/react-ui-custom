@@ -94,7 +94,7 @@
 .select {
     appearance: base-select;
 }
-
+/* 
 .tag {
     padding-block: 0.4em;
     padding-inline: 0.8em;
@@ -123,7 +123,7 @@
             margin-inline-end: 0.3em;
         }
     }
-}
+} */
 
 .blockquote {
     margin: 0;

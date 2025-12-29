@@ -18,13 +18,27 @@ export const Typo = {
             ...colorsBaseClassParams,
             ...textLayout,
             spaced: 'spaced',
-        }),
-    Text: elFactory('p', 'text', {
-        ...colorsBaseClassParams,
-        ...textLayout,
-        spaced: 'spaced',
-    }),
-    Inline: elFactory('span', 'text', {
-        ...colorsBaseClassParams,
-    }),
+        },
+        {},
+        "Typo.Title"
+    )
+    ,
+    Text: elFactory(
+        'p', 'text',
+        {
+            ...colorsBaseClassParams,
+            ...textLayout,
+            spaced: 'spaced',
+        },
+        {},
+        "Typo.Text"
+    ),
+    Inline: elFactory(
+        'span', 'text',
+        {
+            ...colorsBaseClassParams,
+        },
+        {},
+        "Typo.Inline"
+    ),
 }

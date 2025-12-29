@@ -32,7 +32,9 @@ export const elFactory = <
         & {
             extends<V extends PropToClassFactoryParams>(
                 classesName: ClassesParam,
-                classesParams: V
+                classesParams: V,
+                _defaultProps?: ClassFlags<V & T> & ElFactoryProps<K>,
+                componentName?: string,
             ): ComponentType<T & V>,
             getExtendsClassesParams(): [ClassesParam, T]
         }
