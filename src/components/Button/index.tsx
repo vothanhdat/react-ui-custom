@@ -1,5 +1,6 @@
 import { elFactory } from "../../core/elFactory"
 import { colorPropsToClass, flexItemClasses, layoutPropsToClass, shapePropsToClass, statePropsToClass } from "../_base"
+import "../css/index.css"
 
 export const Button = elFactory(
   'button',

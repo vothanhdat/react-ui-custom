@@ -10,7 +10,7 @@ export const flexContainerClasses = {
 } satisfies PropToClassFactoryParams
 
 export const flexItemClasses = {
-    flex: ['fill', 'half', 'third', 'quater'],
+    flex: ['fill', 'half', 'third', 'quater'] as const,
 } satisfies PropToClassFactoryParams
 
 
@@ -51,7 +51,8 @@ export const colorPropsToClass = {
 } as const satisfies PropToClassFactoryParams
 
 export const shapePropsToClass = {
-    variant: ['outlined', 'filled', 'dimmed', 'flatten', 'elevated'] as const
+    variant: ['outlined', 'filled', 'dimmed', 'flatten'] as const,
+    isElevated: 'elevated'
 } as const satisfies PropToClassFactoryParams
 
 

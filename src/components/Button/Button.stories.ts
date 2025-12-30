@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { Button } from './index';
+import { getStoryBookArgTypes } from '../../core/elFactory';
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -16,25 +17,11 @@ const meta = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    color: {
-      type: {
-        name: "enum",
-        required: false,
-        value: ['link', 'primary', 'success', 'danger', 'secondary', 'contract'] as const
-      }
-    },
-    variant: {
-      type: {
-        name: "enum",
-        required: false,
-        value: ['outlined', 'filled', 'dimmed', 'flatten', 'elevated'] as const
-      }
-    },
-    // backgroundColor: { control: 'color' },
-  },
+  argTypes: getStoryBookArgTypes(Button),
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
-  args: { onClick: fn() },
+  args: {
+
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;

@@ -5,10 +5,22 @@ import "./../css/index.css"
 
 
 export const GridLayout = {
-    GridContainer: elFactory('div', 'grid-container', {
-        ...gridContainerClasses,
-    }),
-    GridItem: elFactory('div', 'grid-item', {
-        ...gridItemClasses
-    }),
+    GridContainer: elFactory(
+        'div',
+        'grid-container',
+        {
+            ...gridContainerClasses,
+        },
+        {},
+        "GridLayout.GridContainer"
+    ),
+    GridItem: elFactory(
+        'div',
+        'grid-item',
+        {
+            ...gridItemClasses
+        },
+        {},
+        "GridLayout.GridItem"
+    ),
 };

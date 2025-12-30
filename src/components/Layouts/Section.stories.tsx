@@ -4,6 +4,7 @@ import { fn } from 'storybook/test';
 
 import { Section } from "./Section"
 import { Typo } from '../Typograpy/Typography';
+import { getStoryBookArgTypes } from '../../core/elFactory';
 
 
 
@@ -14,23 +15,17 @@ const meta = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    color: {
-      type: {
-        name: "enum",
-        required: false,
-        value: ['link', 'primary', 'success', 'danger', 'secondary', 'contract'] as const
-      }
-    },
-    section: {
-      type: {
-        name: "enum",
-        required: false,
-        value: ['small', 'medium', 'large'] as const
-      }
-    },
+  argTypes: getStoryBookArgTypes(Section.Root),
+  args: {
+    children: <Section.FlexBody>
+      <Typo.Title as='h1'>
+        Hello World
+      </Typo.Title>
+      <Typo.Title as='h3'>
+        Say Hello to the world
+      </Typo.Title>
+    </Section.FlexBody>
   },
-  args: { onClick: fn() },
 } satisfies Meta<typeof Section.Root>;
 
 
@@ -38,26 +33,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 
-const children = <Section.FlexBody>
-  <Typo.Title as='h1'>
-    Hello World
-  </Typo.Title>
-  <Typo.Title as='h3'>
-    Say Hello to the world
-  </Typo.Title>
-</Section.FlexBody>
-
-
 export const SectionPrimary: Story = {
   args: {
     color: "primary",
-    children,
   },
 };
 
 export const SectionLink: Story = {
   args: {
     color: "link",
-    children,
   },
 };

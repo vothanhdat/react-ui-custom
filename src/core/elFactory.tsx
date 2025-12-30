@@ -1,6 +1,7 @@
 import React from "react"
 import { className, type ClassesParam } from "./className"
 import { propsToClassNameFactory, type PropToClassFactoryParams, type ClassFlags } from "./propsToClassNameFactory"
+import type { Meta } from "@storybook/react-vite"
 
 
 type ElFactoryInput = keyof HTMLElementTagNameMap | React.FC<any>
@@ -36,7 +37,7 @@ export const elFactory = <
                 _defaultProps?: ClassFlags<V & T> & ElFactoryProps<K>,
                 componentName?: string,
             ): ComponentType<T & V>,
-            getExtendsClassesParams(): [ClassesParam, T]
+            getExtendsClassesParams(): [ClassesParam, T, ClassFlags<T> & ElFactoryProps<K>],
         }
 
     const propToClassName = propsToClassNameFactory(classesParams, classesName)
@@ -60,9 +61,44 @@ export const elFactory = <
     Comp.getExtendsClassesParams = () => [
         classesName,
         classesParams,
+        defaultProps,
     ]
 
     Comp.displayName = componentName;
 
     return Comp as ComponentType<T>
+}
+
+
+export const getStoryBookArgTypes = <K extends ElFactoryInput, T extends PropToClassFactoryParams>(
+    Component: ReturnType<typeof elFactory<K, T>>
+): Meta<typeof Component>['argTypes'] => {
+
+    const [, classesParams, ] = Component.getExtendsClassesParams()
+
+    return Object.fromEntries(
+        Object.entries(classesParams)
+            .map(([k, v]) => {
+
+                if (typeof v === 'string') {
+                    return [k, {
+                        control: 'boolean',
+                        table:{
+                            defaultValue: false,
+                        }   
+                    }]
+
+                } else if (v instanceof Array) {
+                    return [k, {
+                        options: v,
+                        control: { type: 'inline-radio' },
+                      
+                    }]
+                } else {
+                    return undefined as never
+                }
+
+            })
+            .filter(Boolean)
+    )
 }
