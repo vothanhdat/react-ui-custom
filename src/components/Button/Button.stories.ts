@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button } from './index';
 import { getStoryBookArgTypes } from '../../core/elFactory';
+import { Button } from './index';
+
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -28,33 +29,8 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    // label: 'Button',
-    children: "Hello World"
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    // label: 'Button',
-    children: "Hello World"
-
-  },
-};
-
-export const Large: Story = {
-  args: {
-    // size: 'large',
-    // label: 'Button',
-    children: "Hello World"
-
-  },
-};
-
-export const Small: Story = {
-  args: {
-    // size: 'small',
-    // label: 'Button',
-    children: "Hello World"
-
+    children: "Hello World",
+    variant: "filled",
+    color: "link"
   },
 };

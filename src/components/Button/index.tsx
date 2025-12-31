@@ -14,7 +14,9 @@ export const Button = elFactory(
     isMobileIconOnly: 'mobile-icon-only',
     isIcon: "icon-only"
   },
-  {},
+  {
+    variant: "filled"
+  },
   "Button"
 )
 

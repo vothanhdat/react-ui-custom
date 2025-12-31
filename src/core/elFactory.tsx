@@ -43,7 +43,7 @@ export const elFactory = <
     const propToClassName = propsToClassNameFactory(classesParams, classesName)
 
     //@ts-ignore
-    const Comp: ComponentType = (props) => <El {...propToClassName({ ...props, ...defaultProps })} />
+    const Comp: ComponentType = (props) => <El {...propToClassName({ ...defaultProps,...props })} />
 
     Comp.extends = <V extends PropToClassFactoryParams>(
         _classesName: ClassesParam,
@@ -54,7 +54,7 @@ export const elFactory = <
         El,
         className(classesName, _classesName),
         { ...classesParams, ..._classesParams },
-        { ..._defaultProps, ...defaultProps } as any,
+        { ...defaultProps, ..._defaultProps } as any,
         componentName,
     )
 
@@ -74,7 +74,7 @@ export const getStoryBookArgTypes = <K extends ElFactoryInput, T extends PropToC
     Component: ReturnType<typeof elFactory<K, T>>
 ): Meta<typeof Component>['argTypes'] => {
 
-    const [, classesParams, ] = Component.getExtendsClassesParams()
+    const [, classesParams,] = Component.getExtendsClassesParams()
 
     return Object.fromEntries(
         Object.entries(classesParams)
@@ -83,16 +83,18 @@ export const getStoryBookArgTypes = <K extends ElFactoryInput, T extends PropToC
                 if (typeof v === 'string') {
                     return [k, {
                         control: 'boolean',
-                        table:{
+                        table: {
                             defaultValue: false,
-                        }   
+                        }
                     }]
 
                 } else if (v instanceof Array) {
                     return [k, {
                         options: v,
-                        control: { type: 'inline-radio' },
-                      
+                        control: {
+                            type: 'inline-radio',
+                        },
+
                     }]
                 } else {
                     return undefined as never
