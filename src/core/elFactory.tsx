@@ -1,4 +1,4 @@
-import React from "react"
+import type * as React from "react"
 import { className, type ClassesParam } from "./className"
 import { propsToClassNameFactory, type PropToClassFactoryParams, type ClassFlags } from "./propsToClassNameFactory"
 import type { Meta } from "@storybook/react-vite"
