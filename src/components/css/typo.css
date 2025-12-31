@@ -83,18 +83,14 @@ h6,
     font-size: calc(1rem * pow(var(--size-factor), -2));
 }
 
-
-.text-small,
 .size-small {
     font-size: calc(1rem * pow(var(--size-factor), -1));
 }
 
-.text-medium,
 .size-medium {
     font-size: calc(1rem * pow(var(--size-factor), 0));
 }
 
-.text-large,
 .size-large {
     font-size: calc(1rem * pow(var(--size-factor), 2));
 }
@@ -112,9 +108,9 @@ h6,
 .h4,
 .h5,
 .h6,
-.text-small,
-.text-medium,
-.text-large,
+.size-small,
+.size-medium,
+.size-large,
 p {
     font-weight: normal;
     margin-block-start: 0.2em;
@@ -155,9 +151,9 @@ h6,
     }
 }
 
-.text-small,
-.text-medium,
-.text-large,
+.size-small,
+.size-medium,
+.size-large,
 .text-subtitle,
 .text-description {
     &.skeleton {}
@@ -184,10 +180,15 @@ h6,
 .text{
     color: var(--current-color);
 }
-
-.text-bold{
-    font-weight: 600;
+.weight-superlight{
+    font-weight: 200;
 }
-.text-light{
+.weight-light{
     font-weight: 300;
+}
+.weight-normal{
+    font-weight: 400;
+}
+.weight-bold{
+    font-weight: 600;
 }

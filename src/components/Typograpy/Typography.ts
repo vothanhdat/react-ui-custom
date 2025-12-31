@@ -1,7 +1,7 @@
 import { DynamicElFactory } from "../../core/DynamicEl";
 import { elFactory } from "../../core/elFactory";
 import { animateIn, colorPropsToClass, textLayout, textVariant } from "../_base";
-
+import "../css/index.css"
 
 const colorsBaseClassParams = {
     ...textVariant,

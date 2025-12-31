@@ -57,22 +57,20 @@ export const shapePropsToClass = {
 
 
 export const textVariant = {
-    small: 'text-small',
-    medium: 'text-medium',
-    large: 'text-large',
+    size: ['small', 'medium', 'large'] as const,
     subtitle: 'text-subtitle',
     description: 'text-description',
-    skeleton: 'skeleton',
-    bold: 'text-bold',
-    light: 'text-light',
+    isSkeleton: 'skeleton',
+    weight: ["superlight", "light", "normal", "bold"]
 } satisfies PropToClassFactoryParams
 
 
 
 export const textLayout = {
-    center: 'align-center',
-    left: 'align-left',
-    right: 'align-right',
+    align: ["left","center","right"],
+    // center: 'align-center',
+    // left: 'align-left',
+    // right: 'align-right',
     nowrap: 'nowrap',
 } satisfies PropToClassFactoryParams
 
